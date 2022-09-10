@@ -17,6 +17,11 @@ public class GuessingGame {
     }
 
     private  static String run(Player player, Answer wordToGuess, Answer currentAnswer){
+        /**
+         * shows the result for each turn
+         * if it was  a correct guess the program will terminate
+         * if not will keep counting chances untill there are no more chances
+         */
         while (!currentAnswer.equals( wordToGuess)) {
             String guess = player.getGuess();
             if (player.wantsToQuit()) {
@@ -40,12 +45,19 @@ public class GuessingGame {
     }
 
     private static Answer start(Player player, Answer wordToGuess) {
+        /**
+         * prints a prompt message and
+         * returns the generated guessing word
+         */
         Answer currentAnswer = wordToGuess.generateRandomHint();
         System.out.println("Guess the word: " + currentAnswer);
         return currentAnswer;
     }
 
     private static Answer getWords(Player player) throws IOException {
+        /**
+         * reads the words from the text file specified by user
+         */
         Random random = new Random();
 
         System.out.println("Words file? [leave empty to use short_words.txt]");

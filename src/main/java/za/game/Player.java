@@ -29,11 +29,17 @@ public class Player {
     }
 
     public String getWordsFile() {
+        /**
+         * gets the file name
+         */
         String filename = scanner.nextLine();
         return filename.isBlank() ? "short_words.txt" : filename;
     }
 
     public String getGuess() {
+        /**
+         * gets the user input
+         */
         String text = scanner.nextLine();
         this.quit = text.equalsIgnoreCase("quit") || text.equalsIgnoreCase("exit");
         return text;

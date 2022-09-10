@@ -21,6 +21,11 @@ public class Answer {
     }
 
     public Answer getHint(Answer lastAnswer, char guess) {
+        /***
+         * gets the missing letters.
+         * matched the guess with the missing letters
+         * if matches than letters are added to the guessing word
+         */
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < this.value.length(); i++) {
@@ -38,6 +43,10 @@ public class Answer {
     }
 
     public Answer generateRandomHint() {
+        /***
+         * generates a character at a random place
+         * hints on what the word might be
+         */
         Random random = new Random();
         int randomIndex = random.nextInt(this.value.length());
 
@@ -47,6 +56,9 @@ public class Answer {
     }
 
     public boolean isGoodGuess(Answer wordToGuess, char letter) {
+        /***
+         * checks if the word entered is correct or not
+         */
         return wordToGuess.hasLetter(letter) && !this.hasLetter(letter);
     }
 
